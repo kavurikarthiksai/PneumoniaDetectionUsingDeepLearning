@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles2.css') }}">
+    <title>Pneumonia</title>
+</head>
+<body>
+    <h2 class="heading">Pneumonia Detection Using Deep Learning</h2>
+    <div class="img-box">
+       <!--<h4 class="text1">Uploaded x-ray image<br><u class="under"></u></h4> --> 
+        <!--<img class="image" src="{{ image_src }}" alt="Uploaded X-ray Image">-->
+        
+        <!-- Add a placeholder for displaying the prediction result -->
+        <p class="prediction-result" style="font-size: 30px;">{{ result }}</p>
+        
+        <h4>Want to know doctors who are nearby</h4>
+        
+        <!-- Add the "Enter your location" dropdown below the heading -->
+        <label for="location-dropdown">Enter your location:</label>
+        <select id="location-dropdown" name="location">
+            <option value="" disabled selected>Select your location</option>
+            <option value="" disabled selected>Select your location</option>
+            <option value="Hyderabad">Hyderabad</option>
+            <option value="Warangal">Warangal</option>
+            <option value="Karimnagar">Karimnagar</option>
+            <option value="Adilabad">Adilabad</option>
+            <option value="Komram Bheem">Komram Bheem</option>
+            <option value="Bhadradri">Bhadradri</option>
+            <option value="Jayashankar">Jayashankar</option>
+            <option value="Gadwal">Gadwal</option>
+            <option value="Jagtial">Jagtial</option>
+            <option value="Jangaon">Jangaon</option>
+            <option value="Kamareddy">Kamareddy</option>
+            <option value="Khammam">Khammam</option>
+            <option value="Mahabubabad">Mahabubabad</option>
+            <option value="Mahbubnagar">Mahbubnagar</option>
+            <option value="Mancherial">Mancherial</option>
+            <option value="Medak">Medak</option>
+            <option value="Medchal">Medchal</option>
+            <option value="Nalgonda">Nalgonda</option>
+            <option value="Nagarkurnool">Nagarkurnool</option>
+            <option value="Nirmal">Nirmal</option>
+            <option value="Nizamabad">Nizamabad</option>
+            <option value="Ranga Reddy">Ranga Reddy</option>
+            <option value="Rajanna">Rajanna</option>
+            <option value="Sangareddy">Sangareddy</option>
+            <option value="Siddipet">Siddipet</option>
+            <option value="Suryapet">Suryapet</option>
+            <option value="Vikarabad">Vikarabad</option>
+            <option value="Wanaparthy">Wanaparthy</option>
+            <option value="Yadadri">Yadadri</option>
+            <!-- Add more options for other Telangana districts as needed -->
+        </select>
+
+        <!-- Add the search button below the location dropdown -->
+        <button class="search-button" type="button" onclick="redirectToGoogleMaps()">Search</button>
+        
+        <script>
+            function redirectToGoogleMaps() {
+                var locationDropdown = document.getElementById("location-dropdown");
+                var selectedLocation = locationDropdown.value;
+
+                // Validate if a location is selected
+                if (selectedLocation === "") {
+                    alert("Please select a location.");
+                    return;
+                }
+
+                // Define Google Maps URLs for different locations
+                var locationUrls = {
+                    "Hyderabad": "https://www.google.com/maps/search/pneumonia+hospital+hyderabad/@17.4402028,78.2816266,11z/data=!3m1!4b1!4m3!2m2!5m1!4e9?entry=ttu",
+                    "Warangal": "https://www.google.com/maps/search/warangal+pneumonia+hospitals/@17.9825945,79.5752533,14z/data=!3m1!4b1!4m3!2m2!5m1!4e9?entry=ttu",
+                    "Karimnagar": "https://www.google.com/maps/search/karimnagar+pneumonia+hospitals/@18.4452481,79.1201308,15.2z/data=!4m3!2m2!5m1!4e9?entry=ttu",
+                    "Adilabad": "https://www.google.com/maps/search/pneumonia+hospital+at+adilabad/@19.6799427,78.515581,14z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Komram Bheem": "https://www.google.com/maps/search/pneumonia+hospital+in+Komram+Bheem/@19.6696811,78.5494767,12.78z/data=!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Bhadradri": "https://www.google.com/maps/search/pneumonia+hospital+in+Bhadradri/@17.5545814,80.6204277,15.93z?hl=en&entry=ttu",
+                    "Jayashankar": "https://www.google.com/maps/search/pneumonia+hospital+in+jayashankar+bhupalpally/@18.4259612,79.8412132,13.78z/data=!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Gadwal": "https://www.google.com/maps/search/pneumonia+hospital+in+Gadwal/@16.2368175,77.7953039,16z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Jagtial": "https://www.google.com/maps/search/pneumonia+hospital+in+jagtial/@18.7950359,78.915655,16z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Jangaon": "https://www.google.com/maps/search/pneumonia+hospital+in+jangaon/@17.7214539,79.1598302,14.06z/data=!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Kamareddy": "https://www.google.com/maps/search/pneumonia+hospital+in+kamareddy/@18.3222977,78.3288323,15z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Khammam": "https://www.google.com/maps/search/pneumonia+hospital+in+khammam/@17.2461344,80.1357222,15z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Mahabubabad": "https://www.google.com/maps/search/pneumonia+hospital+in+mahabubabad/@17.5957303,79.9981631,16.26z/data=!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Mahbubnagar": "https://www.google.com/maps/search/pneumonia+hospital+in+mahabubnagar/@16.7528328,77.9932451,14z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Mancherial": "https://www.google.com/maps/search/pneumonia+hospital+in+Mancherial/@18.8775246,79.4329336,15z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Medak": "https://www.google.com/maps/search/pneumonia+hospital+in+Mancherial/@18.8847801,79.4287386,14.75z/data=!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Medchal": "https://www.google.com/maps/search/pneumonia+hospital+in+Medchal/@17.6196602,78.4631138,14z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Nalgonda": "https://www.google.com/maps/search/pneumonia+hospital+in+nalgonda/@17.0484916,79.2570256,15z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Nagarkurnool": "https://www.google.com/maps/search/pneumonia+hospital+in+nagar+kurnool/@15.8179366,78.0218089,14z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Nirmal": "https://www.google.com/maps/search/pneumonia+hospital+in+nirmal/@19.1000677,78.3232121,14z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Nizamabad": "https://www.google.com/maps/search/pneumonia+hospital+in+nizambad/@18.6731606,78.0990516,15.95z/data=!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Ranga Reddy": "https://www.google.com/maps/search/pneumonia+hospital+in+rangareddy/@17.3942705,78.2803312,11z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Peddapalli": "https://www.google.com/maps/search/pneumonia+hospital+in+peddapalli/@18.6330302,79.3412314,13z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Rajanna": "https://www.google.com/maps/search/pneumonia+hospital+in+Rajanna+Sircilla/@18.3913528,78.8042876,16z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Sangareddy": "https://www.google.com/maps/search/pneumonia+hospital+in+sangareddy/@17.6076178,78.061223,14z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Siddipet": "https://www.google.com/maps/search/pneumonia+hospital+in+siddipet/@18.1032497,78.842098,15.2z/data=!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Suryapet": "https://www.google.com/maps/search/pneumonia+hospital+in+suryapet/@17.1448513,79.6101459,16z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Vikarabad": "https://www.google.com/maps/search/pneumonia+hospital+in+vikarabad/@17.3389497,77.8873385,15z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Wanaparthy": "https://www.google.com/maps/search/pneumonia+hospital+in+wanaparthy/@16.360437,78.0583216,16z/data=!3m1!4b1!4m3!2m2!5m1!4e9?hl=en&entry=ttu",
+                    "Yadadri": "https://www.google.com/maps/search/pneumonia+hospital+in+yadadri/@18.5681546,78.9071451,9.95z?hl=en&entry=ttu"    
+                };
+
+                // Redirect to the appropriate URL based on the selected location
+                if (selectedLocation in locationUrls) {
+                    window.location.href = locationUrls[selectedLocation];
+                }
+            }
+        </script>
+    </div>
+</body>
+</html>

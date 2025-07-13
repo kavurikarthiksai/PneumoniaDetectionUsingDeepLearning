@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Pneumonia</title>
+    <script>
+        function validateForm() {
+            var fileInput = document.querySelector('input[type="file"]');
+            var fileNameDisplay = document.getElementById("file-name-display");
+
+            if (fileInput.files.length === 0) {
+                alert("Please select a file.");
+                return false;
+            }
+
+            // You can display the selected file name
+            fileNameDisplay.textContent = "Selected file: " + fileInput.files[0].name;
+
+            // You can add code here to submit the form via AJAX instead of a regular form submission
+            // Example:
+            // submitForm();
+
+            return true; // Allow the default form submission
+        }
+    </script>
+</head>
+<body>
+    <h2 class="heading">Pneumonia Detection Using Deep Learning</h2>
+    <div class="form1">
+        <form method="post" enctype="multipart/form-data" action="/predict" onsubmit="return validateForm();">
+            <h2 class="sub-heading">Upload chest X-ray image</h2>
+            <input type="file" name="xray_image" accept=".jpg, .jpeg, .png">
+            <button class="button" type="submit">Upload</button>
+        </form>
+        <p id="file-name-display"></p>
+    </div>
+</body>
+</html>

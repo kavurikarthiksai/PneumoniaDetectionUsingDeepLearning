@@ -1,0 +1,53 @@
+body {
+    background-color: #87CEEB; /* Sky blue background color */
+    padding: 30px 0;
+    background-image: url('doctor.webp');
+    background-size: cover;
+}
+
+.heading, .sub-heading {
+    color: #004080; /* Dark blue text color */
+    text-align: center;
+    font-size: 45px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.form1 {
+    width: 60%;
+    height: 300px;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: rgb(224, 255, 255,0.5);
+    text-align: center;
+}
+
+.image-upload {
+    width: 40%;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #007BA7; /* Dark cyan background color */
+    text-align: center;
+    
+}
+
+.button {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    display: block;
+    width: 120px;
+    height: 40px;
+    margin: 50px auto;
+    border: none;
+    border-radius: 50px;
+    background-color: #2E8B57; /* Sea green button background color */
+    box-shadow: 2px 2px 5px 1px #006400; /* Dark green box shadow */
+    text-align: center;
+    cursor: pointer;
+    color: #FFF; /* White text color */
+    
+}
+
+.button:hover {
+    background-color: #32CD32; /* Lime green button background color on hover */
+    box-shadow: 3px 3px 10px 4px #228B22; /* Forest green box shadow on hover */
+}

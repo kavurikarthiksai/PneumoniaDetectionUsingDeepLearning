@@ -1,0 +1,121 @@
+/* Styles from styles.css */
+body {
+    background-color: #87CEEB; /* Sky blue background color */
+    padding: 30px 0;    
+    background-image: url('image.jpeg');
+    background-size: cover;
+}
+
+.heading, .sub-heading {
+    color: #004080; /* Dark blue text color */
+    text-align: center;
+    font-size: 45px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.form1 {
+    width: 60%;
+    height: 300px;
+    margin: 30px auto;
+    padding: 10px;
+    background-color: #afeaea; /* Light cyan background color */
+}
+
+.image-upload {
+    width: 40%;
+    margin: 10px auto;
+    padding: 20px;
+    background-color: #007BA7; /* Dark cyan background color */
+    
+}
+
+.button {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 18px;
+    display: block;
+    width: 120px;
+    height: 40px;
+    margin: 50px auto;
+    border: none;
+    border-radius: 50px;
+    background-color: #2E8B57; /* Sea green button background color */
+    box-shadow: 2px 2px 5px 1px #006400; /* Dark green box shadow */
+    text-align: center;
+    cursor: pointer;
+    color: #FFF; /* White text color */
+}
+
+.button:hover {
+    background-color: #32CD32; /* Lime green button background color on hover */
+    box-shadow: 3px 3px 10px 4px #228B22; /* Forest green box shadow on hover */
+}
+
+/* Your existing styles from styles2.css */
+.img-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 50px auto;
+    background-color: rgb(224, 255, 255,0.5);
+    width: 30%;
+    height: 480px;
+    padding: 10px;
+}
+
+.under {
+    color: rgb(255, 0, 0);
+}
+
+.image {
+    margin-left: 5%;
+    width: 90%;
+    height: 80%;
+}
+
+.text1 {
+    font-size: 20px;
+    text-align: center;
+    margin-top: 5px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.heading {
+    color: rgb(250,250,250); /* Dark blue text color */
+    text-align: center;
+    font-size: 45px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+@media (max-width: 950px) {
+    .img-box {
+        width: 40%;
+    }
+}
+
+@media (max-width: 500px) {
+    .heading {
+        font-size: 35px;
+    }
+
+    .img-box {
+        height: 450px;
+        width: 80%;
+    }
+}
+
+        /* CSS for styling the search button */
+        .search-button {
+            margin-top: 20px; /* Add margin to create spacing */
+            background-color: #007BFF; /* Button background color */
+            color: #fff; /* Text color */
+            border: none; /* Remove button border */
+            padding: 10px 20px; /* Padding around button text */
+            cursor: pointer; /* Change cursor on hover */
+        }
+
+        /* Style the button on hover */
+        .search-button:hover {
+            background-color: #0056b3; /* Button background color on hover */
+        }
+
